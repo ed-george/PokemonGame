@@ -1,5 +1,6 @@
 PokemonGame
 =================
+[<img src="http://th05.deviantart.net/fs71/200H/f/2011/115/3/e/dat_mudkip_by_winze-d3ev3lc.png"/>][mud]
 
 A sweet a simple test in Java to try to gauge how the backend of early pokemon games work!
 
@@ -21,3 +22,4 @@ How to Contribute
 
 [1]:https://github.com/ed-george/PokemonGame/pulls
 [bul]:http://bulbapedia.bulbagarden.net/wiki/Main_Page
+[mud]:http://taskuli.deviantart.com/art/Dat-mudkip-206364144
