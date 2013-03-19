@@ -31,6 +31,7 @@ public class Pokemon {
 	 */
 	private String NAME;
 
+	
 	/**
 	 * @serial Pokemon's level
 	 */
