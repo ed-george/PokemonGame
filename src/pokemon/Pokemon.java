@@ -1,3 +1,7 @@
+package pokemon;
+
+import other.Utils;
+
 /** This class is the Base class of the Pokemon object and contains the key methods used by each Pokemon object
  * 
  * @author <a href="http://edgeorgedev.co.uk">Ed George</a>
@@ -31,7 +35,6 @@ public class Pokemon {
 	 */
 	private String NAME;
 
-	
 	/**
 	 * @serial Pokemon's level
 	 */
@@ -104,7 +107,7 @@ public class Pokemon {
  * @param level Level Stat
  * @param exp Experience
  */
-	Pokemon (String name, int hp, int atk, int def, int spc_atk, int spc_def, int spd, int level, int exp) {
+	public Pokemon (String name, int hp, int atk, int def, int spc_atk, int spc_def, int spd, int level, int exp) {
 
 		setATK(atk);
 		setDEF(def);
@@ -114,11 +117,11 @@ public class Pokemon {
 
 		setMAXHP(hp);
 
-
 		setNAME(name);
 		setLEVEL(level);
 		setEXP(exp);
 		setNEXT_LEVEL_EXP();
+		
 	}
 
 
