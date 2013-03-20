@@ -1,5 +1,11 @@
 package pokemon;
 
+import java.util.ArrayList;
+
+import exceptions.PokemonsMaxAttacks;
+
+import attacks.Attack;
+
 import other.Utils;
 
 /** This class is the Base class of the Pokemon object and contains the key methods used by each Pokemon object
@@ -75,6 +81,17 @@ public class Pokemon {
 	//as a guideline
 
 	/**
+	 * @serial Pokemon's available attacks
+	 */
+	private ArrayList<Attack> ATTACKS;
+	
+	/**
+	 * @serial Pokemon's max number of attacks
+	 */
+	private int MAX_ATTACKS;
+	
+	
+	/**
 	 * @serial Is Pokemon Poisioned?
 	 */
 	private boolean Poisoned = false;
@@ -94,6 +111,7 @@ public class Pokemon {
 	 * @serial Is Pokemon Asleep?
 	 */
 	private boolean Asleep = false;
+	
 
 /** Each new Pokemon object requires setting up it's stats through this constructor
  * 
@@ -106,10 +124,13 @@ public class Pokemon {
  * @param spd Speed Stat
  * @param level Level Stat
  * @param exp Experience
+ * @throws PokemonsMaxAttacks 
  */
-	public Pokemon (String name, int hp, int atk, int def, int spc_atk, int spc_def, int spd, int level, int exp) {
+	public Pokemon (String name, int hp, Attack atk, int def, int spc_atk, int spc_def, int spd, int level, int exp) {
 
-		setATK(atk);
+		ATTACKS = new ArrayList<Attack>();
+		
+		addNewAttack(atk);
 		setDEF(def);
 		setSPC_ATK(spc_atk);
 		setSPC_DEF(spc_def);
@@ -121,6 +142,38 @@ public class Pokemon {
 		setLEVEL(level);
 		setEXP(exp);
 		setNEXT_LEVEL_EXP();
+		
+		setMAX_ATTACKS(5);
+		
+	}
+	
+	/**
+	 * Constructor for predefined Pokemon, can set their starting attacks within their own class
+	 * @param name
+	 * @param hp
+	 * @param def
+	 * @param spc_def
+	 * @param spd
+	 * @param level
+	 * @param exp
+	 * @throws PokemonsMaxAttacks
+	 */
+	public Pokemon (String name, int hp, int def, int spc_def, int spd, int level, int exp) {
+
+		ATTACKS = new ArrayList<Attack>();
+		
+		setDEF(def);
+		setSPC_DEF(spc_def);
+		setSPD(spd);
+
+		setMAXHP(hp);
+
+		setNAME(name);
+		setLEVEL(level);
+		setEXP(exp);
+		setNEXT_LEVEL_EXP();
+		
+		setMAX_ATTACKS(5);
 		
 	}
 
@@ -575,6 +628,52 @@ public class Pokemon {
 	protected void setType(Type type) {
 		TYPE = type;
 		
+	}
+
+	/**
+	 * Gets all attacks a Pokemon can perform
+	 * @return {@link ArrayList<Attack>} of {@link Attack}
+	 */
+	public ArrayList<Attack> getATTACKS() {
+		return ATTACKS;
+	}
+
+	/**
+	 * Sets all attacks a Pokemon can perform
+	 * @param atts ArrayList of {@link Attack}
+	 */
+	public void setATTACKS(ArrayList<Attack> atts) {
+		ATTACKS = atts;
+	}
+	
+	/**
+	 * Adds a new attack to the Pokemon
+	 * @param att {@link Attack}
+	 * @return true if attack is added
+	 * @throws PokemonsMaxAttacks 
+	 */
+	public boolean addNewAttack(Attack att) {
+		if (ATTACKS.size() < 5)
+			return ATTACKS.add(att);
+		return false;
+	}
+
+	/**
+	 * Removes the first occurrence of the attack
+	 * @param att {@link Attack} 
+	 * @return True if the attack is successfully removed
+	 */
+	public boolean removeAttack(Attack att) {
+		return ATTACKS.remove(att);
+	}
+	
+	public int getMAX_ATTACKS() {
+		return MAX_ATTACKS;
+	}
+
+
+	public void setMAX_ATTACKS(int mAX_ATTACKS) {
+		MAX_ATTACKS = mAX_ATTACKS;
 	}
 
 }	
