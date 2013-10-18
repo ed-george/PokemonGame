@@ -23,3 +23,7 @@ How to Contribute
 [1]:https://github.com/ed-george/PokemonGame/pulls
 [bul]:http://bulbapedia.bulbagarden.net/wiki/Main_Page
 [mud]:http://taskuli.deviantart.com/art/Dat-mudkip-206364144
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/ed-george/pokemongame/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
